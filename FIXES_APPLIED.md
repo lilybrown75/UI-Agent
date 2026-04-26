@@ -1,0 +1,316 @@
+# Fixes Applied
+
+This document details all automated security fixes applied by Recon 2.0.
+
+**Total Fixes:** 1
+
+## Summary
+
+| File | Fixes Applied | Avg Confidence |
+|------|---------------|----------------|
+| `package.json` | 1 | 80.0% |
+
+## Detailed Fix Information
+
+### 1. outdated_dependency
+
+**File:** `package.json`
+
+**Vulnerability ID:** `dependency-0`
+
+**Pattern Used:** `outdated_dependency`
+
+**Confidence Score:** 80.0%
+
+**Code Changes:**
+
+**Before:**
+```javascript
+{
+  "name": "unbody",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "unbody-cli": "ts-node src/cli",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@langchain/openai": "^0.0.33",
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/mongoose": "^11.0.1",
+    "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/swagger": "^11.0.4",
+    "@temporalio/activity": "^1.11.7",
+    "@temporalio/client": "^1.11.7",
+    "@temporalio/common": "^1.11.7",
+    "@temporalio/worker": "^1.11.7",
+    "@temporalio/workflow": "^1.11.7",
+    "@thellimist/bottleneck": "^2.19.8",
+    "acorn": "^8.14.1",
+    "axios": "^1.8.4",
+    "chokidar": "^4.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "commander": "^13.1.0",
+    "config": "^3.3.12",
+    "crawlee": "^3.13.0",
+    "css": "^3.0.0",
+    "dotenv": "^16.4.7",
+    "front-matter": "^4.0.2",
+    "googleapis": "^144.0.0",
+    "helmet": "^8.0.0",
+    "inquirer": "^12.5.0",
+    "ioredis": "^5.5.0",
+    "jsonpath": "^1.1.1",
+    "langchain": "^0.2.0",
+    "lodash": "^4.17.21",
+    "marked": "^15.0.7",
+    "mime-types": "^3.0.1",
+    "mongoose": "^8.10.0",
+    "node-html-parser": "^7.0.1",
+    "node-jq": "^6.0.1",
+    "octokit": "3.2.1",
+    "openai": "^4.85.1",
+    "playwright": "^1.51.1",
+    "redis": "^4.7.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "sanitize-html": "^2.14.0",
+    "sharp": "^0.33.5",
+    "slugify": "^1.6.6",
+    "tiktoken": "^1.0.20",
+    "tmp-promise": "^3.0.3",
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2",
+    "unzipper": "^0.12.3",
+    "uuid": "^11.0.5",
+    "weaviate-client": "^3.4.1",
+    "winston": "^3.17.0",
+    "yup": "^1.6.1",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.3",
+    "zod-validation-error": "^3.4.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.1",
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.10.7",
+    "@types/css": "^0.0.38",
+    "@types/express": "^5.0.0",
+    "@types/ioredis": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/jsonpath": "^0.2.4",
+    "@types/lodash": "^4.17.15",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^22.10.7",
+    "@types/sanitize-html": "^2.16.0",
+    "@types/supertest": "^6.0.2",
+    "@types/turndown": "^5.0.5",
+    "@types/unzipper": "^0.10.10",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^15.14.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.4.2",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
+
+```
+
+**After:**
+```javascript
+{
+  "name": "unbody",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "unbody-cli": "ts-node src/cli",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@langchain/openai": "^1.0.0",
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/mongoose": "^11.0.1",
+    "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/swagger": "^11.0.4",
+    "@temporalio/activity": "^1.11.7",
+    "@temporalio/client": "^1.11.7",
+    "@temporalio/common": "^1.11.7",
+    "@temporalio/worker": "^1.11.7",
+    "@temporalio/workflow": "^1.11.7",
+    "@thellimist/bottleneck": "^2.19.8",
+    "acorn": "^8.14.1",
+    "axios": "^1.8.4",
+    "chokidar": "^4.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "commander": "^13.1.0",
+    "config": "^3.3.12",
+    "crawlee": "^3.13.0",
+    "css": "^3.0.0",
+    "dotenv": "^16.4.7",
+    "front-matter": "^4.0.2",
+    "googleapis": "^144.0.0",
+    "helmet": "^8.0.0",
+    "inquirer": "^12.5.0",
+    "ioredis": "^5.5.0",
+    "jsonpath": "^1.1.1",
+    "langchain": "^0.2.0",
+    "lodash": "^4.17.21",
+    "marked": "^15.0.7",
+    "mime-types": "^3.0.1",
+    "mongoose": "^8.10.0",
+    "node-html-parser": "^7.0.1",
+    "node-jq": "^6.0.1",
+    "octokit": "3.2.1",
+    "openai": "^4.85.1",
+    "playwright": "^1.51.1",
+    "redis": "^4.7.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "sanitize-html": "^2.14.0",
+    "sharp": "^0.33.5",
+    "slugify": "^1.6.6",
+    "tiktoken": "^1.0.20",
+    "tmp-promise": "^3.0.3",
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2",
+    "unzipper": "^0.12.3",
+    "uuid": "^11.0.5",
+    "weaviate-client": "^3.4.1",
+    "winston": "^3.17.0",
+    "yup": "^1.6.1",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.3",
+    "zod-validation-error": "^3.4.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.1",
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.10.7",
+    "@types/css": "^0.0.38",
+    "@types/express": "^5.0.0",
+    "@types/ioredis": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/jsonpath": "^0.2.4",
+    "@types/lodash": "^4.17.15",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^22.10.7",
+    "@types/sanitize-html": "^2.16.0",
+    "@types/supertest": "^6.0.2",
+    "@types/turndown": "^5.0.5",
+    "@types/unzipper": "^0.10.10",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^15.14.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.4.2",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
+```
+
+---
+
+## Testing Recommendations
+
+Before merging these fixes:
+
+1. ✅ Run your existing test suite
+2. ✅ Test affected functionality manually
+3. ✅ Verify environment variables are set correctly
+4. ✅ Install any required packages
+5. ✅ Review code changes for correctness
+
+---
+
+🤖 **Generated by Recon 2.0** - Pattern-Based Fix Generation System
